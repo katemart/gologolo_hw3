@@ -51,7 +51,7 @@ class EditLogoScreen extends Component {
                                                 Edit Logo
                                         </h3>
                                         </div>
-                                        <div className="panel-body">                                            
+                                        <div className="panel-body row">                                            
                                             <form onSubmit={e => {
                                                 e.preventDefault();
                                                 updateLogo({ variables: { id: data.logo._id, text: text.value, color: color.value, fontSize: parseInt(fontSize.value) } });
