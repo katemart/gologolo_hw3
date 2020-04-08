@@ -45,18 +45,19 @@ class CreateLogoScreen extends Component {
                             <div className="panel-body">
                                 <form onSubmit={e => {
                                     e.preventDefault();
+                                    //console.log(text.value);
                                     addLogo(
                                         { variables: 
                                             { 
-                                                text: text, 
+                                                text: text.value, 
                                                 color: color.value, 
-                                                fontSize: parseInt(fontSize),
-                                                backgroundColor: backgroundColor,
-                                                borderColor: borderColor,
-                                                borderRadius: parseInt(borderRadius),
-                                                borderWidth: parseInt(borderWidth),
-                                                padding: parseInt(padding),
-                                                margin: parseInt(margin)
+                                                fontSize: parseInt(fontSize.value),
+                                                backgroundColor: backgroundColor.value,
+                                                borderColor: borderColor.value,
+                                                borderRadius: parseInt(borderRadius.value),
+                                                borderWidth: parseInt(borderWidth.value),
+                                                padding: parseInt(padding.value),
+                                                margin: parseInt(margin.value)
                                             } 
                                         });
                                 }}>
@@ -72,6 +73,15 @@ class CreateLogoScreen extends Component {
                                             padding: "5",
                                             margin: "10"
                                         }}
+                                        textRef={(textInput) => text = textInput}
+                                        colorRef={(colorInput) => color = colorInput}
+                                        fontSizeRef={(fontSizeInput) => fontSize = fontSizeInput}
+                                        backgroundColorRef={(backgroundInput) => backgroundColor = backgroundInput}
+                                        borderColorRef={(borderColorInput) => borderColor = borderColorInput}
+                                        borderRadiusRef={(radiusInput) => borderRadius = radiusInput}
+                                        borderWidthRef={(borderWidthInput) => borderWidth = borderWidthInput}
+                                        paddingRef={(paddingInput) => padding = paddingInput}
+                                        marginRef={(marginInput) => margin = marginInput}
                                     />
                                     <button type="submit" className="btn btn-success">Submit</button>
                                 </form>

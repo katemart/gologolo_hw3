@@ -70,18 +70,19 @@ class EditLogoScreen extends Component {
                                             <form onSubmit={e => {
                                                 e.preventDefault();
                                                 updateLogo(
-                                                    { variables:
+                                                    {
+                                                        variables:
                                                         {
                                                             id: data.logo._id,
-                                                            text: text,
-                                                            color: color,
-                                                            fontSize: parseInt(fontSize),
-                                                            backgroundColor: backgroundColor,
-                                                            borderColor: borderColor,
-                                                            borderRadius: parseInt(borderRadius),
-                                                            borderWidth: parseInt(borderWidth),
-                                                            padding: parseInt(padding),
-                                                            margin: parseInt(margin)
+                                                            text: text.value,
+                                                            color: color.value,
+                                                            fontSize: parseInt(fontSize.value),
+                                                            backgroundColor: backgroundColor.value,
+                                                            borderColor: borderColor.value,
+                                                            borderRadius: parseInt(borderRadius.value),
+                                                            borderWidth: parseInt(borderWidth.value),
+                                                            padding: parseInt(padding.value),
+                                                            margin: parseInt(margin.value)
                                                         }
                                                     });
                                             }}>
@@ -97,6 +98,15 @@ class EditLogoScreen extends Component {
                                                         padding: data.logo.padding,
                                                         margin: data.logo.margin
                                                     }}
+                                                    textRef={(textInput) => text = textInput}
+                                                    colorRef={(colorInput) => color = colorInput}
+                                                    fontSizeRef={(fontSizeInput) => fontSize = fontSizeInput}
+                                                    backgroundColorRef={(backgroundInput) => backgroundColor = backgroundInput}
+                                                    borderColorRef={(borderColorInput) => borderColor = borderColorInput}
+                                                    borderRadiusRef={(radiusInput) => borderRadius = radiusInput}
+                                                    borderWidthRef={(borderWidthInput) => borderWidth = borderWidthInput}
+                                                    paddingRef={(paddingInput) => padding = paddingInput}
+                                                    marginRef={(marginInput) => margin = marginInput}
                                                 />
                                                 <button type="submit" className="btn btn-success">Submit</button>
                                             </form>

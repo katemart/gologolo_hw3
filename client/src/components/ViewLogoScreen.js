@@ -32,10 +32,9 @@ const DELETE_LOGO = gql`
 `;
 
 class ViewLogoScreen extends Component {
-
     render() {
         return (
-            <Query pollInterval={500} query={GET_LOGO} variables={{ logoId: this.props.match.params.id }}>
+            <Query pollInterval={400} query={GET_LOGO} variables={{ logoId: this.props.match.params.id }}>
                 {({ loading, error, data }) => {
                     if (loading) return 'Loading...';
                     if (error) return `Error! ${error.message}`;
