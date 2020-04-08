@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import gql from "graphql-tag";
 import { Mutation } from "react-apollo";
 import { Link } from 'react-router-dom';
+import EditSidebar from './EditSidebar';
 
 const ADD_LOGO = gql`
     mutation AddLogo(
@@ -30,7 +31,6 @@ const ADD_LOGO = gql`
 `;
 
 class CreateLogoScreen extends Component {
-
     render() {
         let text, color, fontSize, backgroundColor, borderColor, borderRadius, borderWidth, padding, margin;
         return (
@@ -40,9 +40,7 @@ class CreateLogoScreen extends Component {
                         <div className="panel panel-default">
                             <div className="panel-heading">
                                 <h4><Link to="/">Home</Link></h4>
-                                <h3 className="panel-title">
-                                    Create Logo
-                            </h3>
+                                <h3 className="panel-title">Create Logo</h3>
                             </div>
                             <div className="panel-body">
                                 <form onSubmit={e => {
@@ -50,81 +48,31 @@ class CreateLogoScreen extends Component {
                                     addLogo(
                                         { variables: 
                                             { 
-                                                text: text.value, 
-                                                color: color.value, 
-                                                fontSize: parseInt(fontSize.value),
-                                                backgroundColor: backgroundColor.value,
-                                                borderColor: borderColor.value,
-                                                borderRadius: parseInt(borderRadius.value),
-                                                borderWidth: parseInt(borderWidth.value),
-                                                padding: parseInt(padding.value),
-                                                margin: parseInt(margin.value)
+                                                text: text, 
+                                                color: color, 
+                                                fontSize: parseInt(fontSize),
+                                                backgroundColor: backgroundColor,
+                                                borderColor: borderColor,
+                                                borderRadius: parseInt(borderRadius),
+                                                borderWidth: parseInt(borderWidth),
+                                                padding: parseInt(padding),
+                                                margin: parseInt(margin)
                                             } 
                                         });
-                                    text.value = "";
-                                    color.value = "";
-                                    fontSize.value = "";
-                                    backgroundColor.value = "";
-                                    borderColor.value = "";
-                                    borderRadius.value = "";
-                                    borderWidth.value = "";
-                                    padding.value = "";
-                                    margin.value = "";
                                 }}>
-                                    <div className="form-group">
-                                        <label htmlFor="text">Text:</label>
-                                        <input type="text" className="form-control" name="text" ref={node => {
-                                            text = node;
-                                        }} placeholder="Text" />
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="color">Color:</label>
-                                        <input type="color" className="form-control" name="color" ref={node => {
-                                            color = node;
-                                        }} placeholder="Color" />
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="fontSize">Font Size:</label>
-                                        <input type="number" className="form-control" name="fontSize" ref={node => {
-                                            fontSize = node;
-                                        }} placeholder="Font Size" />
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="backgroundColor"> Background Color:</label>
-                                        <input type="color" className="form-control" name="backgroundColor" ref={node => {
-                                            backgroundColor = node;
-                                        }} placeholder="Background Color" />
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="borderColor"> Border Color:</label>
-                                        <input type="color" className="form-control" name="borderColor" ref={node => {
-                                            borderColor = node;
-                                        }} placeholder="Border Color" />
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="borderRadius">Border Radius:</label>
-                                        <input type="number" className="form-control" name="borderRadius" ref={node => {
-                                            borderRadius = node;
-                                        }} placeholder="Border Radius" />
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="borderWidth">Border Width:</label>
-                                        <input type="number" className="form-control" name="borderWidth" ref={node => {
-                                            borderWidth = node;
-                                        }} placeholder="Border Width" />
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="padding">Padding:</label>
-                                        <input type="number" className="form-control" name="padding" ref={node => {
-                                            padding = node;
-                                        }} placeholder="Padding" />
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="margin">Margin:</label>
-                                        <input type="number" className="form-control" name="margin" ref={node => {
-                                            margin = node;
-                                        }} placeholder="Margin" />
-                                    </div>
+                                    <EditSidebar 
+                                        logo = {{
+                                            text: "goLogoLo Logo",
+                                            color: "#000000",
+                                            fontSize: "24",
+                                            backgroundColor: "#a3bad9",
+                                            borderColor: "#edea2e",
+                                            borderRadius: "5",
+                                            borderWidth: "5",
+                                            padding: "5",
+                                            margin: "10"
+                                        }}
+                                    />
                                     <button type="submit" className="btn btn-success">Submit</button>
                                 </form>
                                 {loading && <p>Loading...</p>}
