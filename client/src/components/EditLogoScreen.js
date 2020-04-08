@@ -65,9 +65,7 @@ class EditLogoScreen extends Component {
                                     <div className="panel panel-default">
                                         <div className="panel-heading">
                                             <h4><Link to="/">Home</Link></h4>
-                                            <h3 className="panel-title">
-                                                Edit Logo
-                                        </h3>
+                                            <h3 className="panel-title">Edit Logo</h3>
                                         </div>
                                         <div className="panel-body row">                                            
                                             <form onSubmit={e => {
@@ -75,16 +73,16 @@ class EditLogoScreen extends Component {
                                                 updateLogo(
                                                     { variables: 
                                                         { 
-                                                        id: data.logo._id, 
-                                                        text: text.value, 
-                                                        color: color.value, 
-                                                        fontSize: parseInt(fontSize.value),
-                                                        backgroundColor: backgroundColor.value,
-                                                        borderColor: borderColor.value,
-                                                        borderRadius: parseInt(borderRadius.value),
-                                                        borderWidth: parseInt(borderWidth.value),
-                                                        padding: parseInt(padding.value),
-                                                        margin: parseInt(margin.value)
+                                                            id: data.logo._id, 
+                                                            text: text.value, 
+                                                            color: color.value, 
+                                                            fontSize: parseInt(fontSize.value),
+                                                            backgroundColor: backgroundColor.value,
+                                                            borderColor: borderColor.value,
+                                                            borderRadius: parseInt(borderRadius.value),
+                                                            borderWidth: parseInt(borderWidth.value),
+                                                            padding: parseInt(padding.value),
+                                                            margin: parseInt(margin.value)
                                                         } 
                                                     });
                                                 text.value = "";
