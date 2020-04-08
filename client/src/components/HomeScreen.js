@@ -24,10 +24,12 @@ class HomeScreen extends Component {
                     if (error) return `Error! ${error.message}`;
 
                     return (
-                        <div className="container row">
+                        <div className="container row" style={{padding: 20, marginLeft: "10%", marginRight: "10%"}}>
                             <div className="col-sm-4">
                                 <h3>Recent Work</h3>
-                                {data.logos.map((logo, index) => (
+                                {data.logos.sort(function(logo1, logo2){
+                                    return ((logo1.lastUpdate === logo2.lastUpdate) ? 0 : ((logo1.lastUpdate > logo2.lastUpdate) ? -1 : 1));
+                                }).map((logo, index) => (
                                     <div key={index} className='home_logo_link'
                                         style={{ cursor: "pointer" }}>
                                         <Link to={`/view/${logo._id}`}>{logo.text}</Link>
