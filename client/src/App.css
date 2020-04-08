@@ -18,16 +18,19 @@ body {
   font-family: 'Lexend Exa';
 }
 
+/*#b8b808, #636723, black*/
 #home_banner_container {
   background-image: linear-gradient(to bottom,         
-  #b8b808, #636723);
+  #b8b808, #26a69a);
   color: white;
-  font-size: 48pt;
-  border-color: black;
+  font-size: 50pt;
+  border-color: #69f0ae;
   border-width: 2px;
   border-style: solid;
   border-radius: 10px;
   padding-left: 10%;
+  padding-right: 10%;
   padding-top: 5%;
   padding-bottom: 5%;
+  text-align: center;
 }

@@ -15,7 +15,7 @@ const GET_LOGOS = gql`
 `;
 
 class HomeScreen extends Component {
-
+    //<Link id="add_logo_button" to="/create">Add Logo</Link>
     render() {
         return (
             <Query pollInterval={500} query={GET_LOGOS}>
@@ -24,7 +24,7 @@ class HomeScreen extends Component {
                     if (error) return `Error! ${error.message}`;
 
                     return (
-                        <div className="container row" style={{padding: 20, marginLeft: "10%", marginRight: "10%"}}>
+                        <div className="container row" style={{margin: 20, marginLeft: "10%", marginRight: "10%"}}>
                             <div className="col-sm-4">
                                 <h3>Recent Work</h3>
                                 {data.logos.sort(function(logo1, logo2){
@@ -37,11 +37,13 @@ class HomeScreen extends Component {
                                 ))}
                             </div>
                             <div className="col-sm-8">
-                                <div id="home_banner_container">
-                                    GoLogoLo
-                                </div>
-                                <div>
-                                    <Link id="add_logo_button" to="/create">Add Logo</Link>
+                                <div id="home_banner_container">GoLogoLo</div>
+                                <div style={{textAlign: "center"}}>
+                                    <Link id="add_logo_button" to="/create">
+                                        <button style={{background: "#b0e0e6", borderRadius: 2, margin: 10}}>
+                                            Create a New Logo
+                                        </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

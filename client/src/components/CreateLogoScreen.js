@@ -49,7 +49,7 @@ class CreateLogoScreen extends Component {
                                         { variables: 
                                             { 
                                                 text: text, 
-                                                color: color, 
+                                                color: color.value, 
                                                 fontSize: parseInt(fontSize),
                                                 backgroundColor: backgroundColor,
                                                 borderColor: borderColor,

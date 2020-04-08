@@ -17,7 +17,7 @@ class LogoDisplay extends Component {
             }
         }
         return (
-            <div className="col-sm-8" style={{maxWidth:"max-content"}}>
+            <div style={{maxWidth:"max-content"}}>
                 <div
                     style={styles.container}>
                     {this.props.logo.text}
