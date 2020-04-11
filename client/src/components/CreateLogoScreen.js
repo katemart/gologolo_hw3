@@ -34,7 +34,7 @@ class CreateLogoScreen extends Component {
     render() {
         let text, color, fontSize, backgroundColor, borderColor, borderRadius, borderWidth, padding, margin;
         return (
-            <Mutation mutation={ADD_LOGO} onCompleted={() => this.props.history.push('/')}>
+            <Mutation mutation={ADD_LOGO} onCompleted={(logo => this.props.history.push(`/view/${logo.addLogo._id}`))}>
                 {(addLogo, { loading, error }) => (
                     <div className="container">
                         <div className="panel panel-default">
@@ -45,7 +45,6 @@ class CreateLogoScreen extends Component {
                             <div className="panel-body">
                                 <form onSubmit={e => {
                                     e.preventDefault();
-                                    //console.log(text.value);
                                     addLogo(
                                         { variables: 
                                             { 
@@ -83,7 +82,6 @@ class CreateLogoScreen extends Component {
                                         paddingRef={(paddingInput) => padding = paddingInput}
                                         marginRef={(marginInput) => margin = marginInput}
                                     />
-                                    <button type="submit" className="btn btn-success">Submit</button>
                                 </form>
                                 {loading && <p>Loading...</p>}
                                 {error && <p>Error :( Please try again</p>}

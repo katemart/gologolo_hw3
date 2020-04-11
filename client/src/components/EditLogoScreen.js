@@ -44,11 +44,12 @@ const UPDATE_LOGO = gql`
                 borderWidth: $borderWidth,
                 padding: $padding,
                 margin: $margin,) {
+                    _id,
                     lastUpdate
                 }
         }
 `;
-//placeholder="Margin" defaultValue={data.logo.margin} />
+
 class EditLogoScreen extends Component {
     render() {
         let text, color, fontSize, backgroundColor, borderColor, borderRadius, borderWidth, padding, margin;
@@ -58,7 +59,7 @@ class EditLogoScreen extends Component {
                     if (loading) return 'Loading...';
                     if (error) return `Error! ${error.message}`;
                     return (
-                        <Mutation mutation={UPDATE_LOGO} key={data.logo._id} onCompleted={() => this.props.history.push(`/`)}>
+                        <Mutation mutation={UPDATE_LOGO} key={data.logo._id} onCompleted={(data => this.props.history.push(`/view/${data.updateLogo._id}`))}>
                             {(updateLogo, { loading, error }) => (
                                 <div className="container">
                                     <div className="panel panel-default">
@@ -69,6 +70,10 @@ class EditLogoScreen extends Component {
                                         <div className="panel-body">
                                             <form onSubmit={e => {
                                                 e.preventDefault();
+                                                if(!text.value.trim()) {
+                                                    text.value = "";
+                                                    return
+                                                }
                                                 updateLogo(
                                                     {
                                                         variables:
@@ -108,7 +113,6 @@ class EditLogoScreen extends Component {
                                                     paddingRef={(paddingInput) => padding = paddingInput}
                                                     marginRef={(marginInput) => margin = marginInput}
                                                 />
-                                                <button type="submit" className="btn btn-success">Submit</button>
                                             </form>
                                             {loading && <p>Loading...</p>}
                                             {error && <p>Error :( Please try again</p>}
