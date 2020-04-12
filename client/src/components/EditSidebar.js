@@ -40,7 +40,7 @@ class EditSidebar extends Component {
                     </div>
                     <div className="form-group">
                         <label htmlFor="fontSize">Font Size:</label>
-                        <input type="number" min="4" max="150" className="form-control" name="fontSize" onChange={this.handleChange}
+                        <input type="number" min="4" max="100" className="form-control" name="fontSize" onChange={this.handleChange}
                             placeholder="Font Size" value={this.state.fontSize} ref={this.props.fontSizeRef} required />
                     </div>
                     <div className="form-group">
