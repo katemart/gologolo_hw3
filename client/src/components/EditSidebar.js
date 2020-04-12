@@ -8,9 +8,6 @@ class EditSidebar extends Component {
     }
 
     getText(logoText) {
-        for (let i = 0; i < logoText.length; i++) {
-            logoText = logoText.replace(" ", "\u00a0");
-        }
         return logoText;
     }
 
@@ -24,7 +21,8 @@ class EditSidebar extends Component {
     }
 
     render() {
-        const btnDisabled = !this.getText(this.state.text.trim()) ? "btn btn-secondary disabled" : "btn btn-success";
+        const btnDisabledStyle = !this.getText(this.state.text.trim()) ? "default" : "pointer";
+        const btnDisabledClass = !this.getText(this.state.text.trim()) ? "btn btn-secondary disabled" : "btn btn-success";
         return (
             <div className="container row">
                 <div className="col-sm-3">
@@ -73,11 +71,11 @@ class EditSidebar extends Component {
                         <input type="number" min="0" max="100" className="form-control" name="margin" onChange={this.handleChange}
                             placeholder="Margin" value={this.state.margin} ref={this.props.marginRef} />
                     </div>
+                    <button type="submit" className={btnDisabledClass} style={{cursor: btnDisabledStyle}}>Submit</button>
                 </div>
                 <div className="col-sm-9">
                     <LogoDisplay logo={this.state} />
                 </div>
-                <button type="submit" className={btnDisabled}>Submit</button>
             </div>
         )
     }

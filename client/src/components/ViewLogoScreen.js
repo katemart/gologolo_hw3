@@ -53,7 +53,7 @@ class ViewLogoScreen extends Component {
                                         <div className="col-sm-4">
                                             <dl>
                                                 <dt>Text:</dt>
-                                                <dd style={ {whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis"} }>{data.logo.text}</dd>
+                                                <dd style={ {whiteSpace: "pre", overflow: "hidden", textOverflow: "ellipsis"} }>{data.logo.text}</dd>
                                                 <dt>Color:</dt>
                                                 <dd>{data.logo.color}</dd>
                                                 <dt>Font Size:</dt>

@@ -13,14 +13,15 @@ class LogoDisplay extends Component {
                 borderStyle: "solid",
                 padding: this.props.logo.padding + "px",
                 margin: this.props.logo.margin + "px",
-                overflow: "auto"
+                overflow: "auto",
+                whiteSpace: "pre"
             }
         }
         return (
             <div style={{maxWidth:"max-content"}}>
                 <div
                     style={styles.container}>
-                    {this.props.logo.text}
+                    {this.props.logo.text.trim()}
                 </div>
             </div>
         )

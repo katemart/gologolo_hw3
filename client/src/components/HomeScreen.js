@@ -30,7 +30,7 @@ class HomeScreen extends Component {
                                     return ((logo1.lastUpdate === logo2.lastUpdate) ? 0 : ((logo1.lastUpdate > logo2.lastUpdate) ? -1 : 1));
                                 }).map((logo, index) => (
                                     <div key={index} className='home_logo_link'
-                                        style={{cursor: "pointer", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis"}}>
+                                        style={{cursor: "pointer", whiteSpace: "pre", overflow: "hidden", textOverflow: "ellipsis"}}>
                                         <Link to={`/view/${logo._id}`}>{logo.text}</Link>
                                     </div>
                                 ))}
