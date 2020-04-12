@@ -45,6 +45,10 @@ class CreateLogoScreen extends Component {
                             <div className="panel-body">
                                 <form onSubmit={e => {
                                     e.preventDefault();
+                                    if(!text.value.trim()) {
+                                        text.value = "";
+                                        return
+                                    }
                                     addLogo(
                                         { variables: 
                                             { 
