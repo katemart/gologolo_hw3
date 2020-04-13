@@ -21,8 +21,18 @@ class EditSidebar extends Component {
     }
 
     render() {
-        const btnDisabledStyle = !this.getText(this.state.text.trim()) ? "default" : "pointer";
-        const btnDisabledClass = !this.getText(this.state.text.trim()) ? "btn btn-secondary disabled" : "btn btn-success";
+        const btnDisabledStyle = !this.getText(this.state.text.trim()) || !(this.state.fontSize >= 4 && this.state.fontSize <= 100) 
+        || !(this.state.borderRadius) || !(this.state.borderRadius >= 0 && this.state.borderRadius <= 100)
+        || !(this.state.borderWidth) || !(this.state.borderWidth >= 0 && this.state.borderWidth <= 100)
+        || !(this.state.padding) || !(this.state.padding >= 0 && this.state.padding <= 100) 
+        || !(this.state.margin) || !(this.state.margin >= 0 && this.state.margin <= 100)
+        ? "default" : "pointer";
+        const btnDisabledClass = !this.getText(this.state.text.trim()) || !(this.state.fontSize >= 4 && this.state.fontSize <= 100) 
+        || !(this.state.borderRadius) || !(this.state.borderRadius >= 0 && this.state.borderRadius <= 100)
+        || !(this.state.borderWidth) || !(this.state.borderWidth >= 0 && this.state.borderWidth <= 100)
+        || !(this.state.padding) || !(this.state.padding >= 0 && this.state.padding <= 100) 
+        || !(this.state.margin) || !(this.state.margin >= 0 && this.state.margin <= 100)
+        ? "btn btn-secondary disabled" : "btn btn-success";
         return (
             <div className="container row">
                 <div className="col-sm-3">
