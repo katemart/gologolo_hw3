@@ -17,6 +17,7 @@ const GET_LOGO = gql`
             borderWidth
             padding
             margin
+            lastUpdate
         }
     }
 `;
