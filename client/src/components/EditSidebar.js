@@ -4,7 +4,9 @@ import LogoDisplay from './LogoDisplay';
 class EditSidebar extends Component {
     constructor(props) {
         super(props);
-        this.state = this.props.logo;
+        let logo = this.props.logo;
+        Object.keys(logo).map((key, index) => logo[key] = logo[key] + '');
+        this.state = logo;
     }
 
     getText(logoText) {
@@ -21,13 +23,13 @@ class EditSidebar extends Component {
     }
 
     render() {
-        const btnDisabledStyle = !this.getText(this.state.text.trim()) || !(this.state.fontSize >= 4 && this.state.fontSize <= 100) 
-        || !(this.state.borderRadius) || !(this.state.borderRadius >= 0 && this.state.borderRadius <= 100)
+        const btnDisabledStyle = !(this.state.text.trim()) || !(this.state.fontSize >= 4 && this.state.fontSize <= 100) 
+        || !(this.state.borderRadius.toString()) || !(this.state.borderRadius >= 0 && this.state.borderRadius <= 100)
         || !(this.state.borderWidth) || !(this.state.borderWidth >= 0 && this.state.borderWidth <= 100)
         || !(this.state.padding) || !(this.state.padding >= 0 && this.state.padding <= 100) 
         || !(this.state.margin) || !(this.state.margin >= 0 && this.state.margin <= 100)
         ? "default" : "pointer";
-        const btnDisabledClass = !this.getText(this.state.text.trim()) || !(this.state.fontSize >= 4 && this.state.fontSize <= 100) 
+        const btnDisabledClass = !(this.state.text.trim()) || !(this.state.fontSize >= 4 && this.state.fontSize <= 100) 
         || !(this.state.borderRadius) || !(this.state.borderRadius >= 0 && this.state.borderRadius <= 100)
         || !(this.state.borderWidth) || !(this.state.borderWidth >= 0 && this.state.borderWidth <= 100)
         || !(this.state.padding) || !(this.state.padding >= 0 && this.state.padding <= 100) 
@@ -79,7 +81,7 @@ class EditSidebar extends Component {
                     <div className="form-group">
                         <label htmlFor="margin">Margin:</label>
                         <input type="number" min="0" max="100" className="form-control" name="margin" onChange={this.handleChange}
-                            placeholder="Margin" value={this.state.margin} ref={this.props.marginRef} />
+                            placeholder="Margin" value={this.state.margin} ref={this.props.marginRef} required />
                     </div>
                     <button type="submit" className={btnDisabledClass} style={{cursor: btnDisabledStyle}}>Submit</button>
                 </div>
