@@ -176,7 +176,7 @@ var mutation = new GraphQLObjectType({
                                                         margin: params.margin,
                                                         lastUpdate: new Date()}, 
                     function (err) {
-                        if (err) return next(err);
+                        if (err) return err;
                     });
                 }
             },
@@ -190,7 +190,7 @@ var mutation = new GraphQLObjectType({
                 resolve(root, params) {
                     const remLogo = LogoModel.findByIdAndRemove(params.id).exec();
                     if (!remLogo) {
-                        throw new Error('Error')
+                        throw new Error('Error');
                     }
                     return remLogo;
                 }
